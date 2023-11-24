@@ -142,5 +142,7 @@ systemctl restart zabbix-agent
 systemctl status zabbix-agent
 ```
 Добавление Zabbix Agentов в раздел "Configuration > Hosts" на Zabbix Server.
+Configuration > Hosts > Create host > (Host name-AgentZabbix); (Templates-Linux by Zabbix agent); (Groups-Linux servers); (Interfaces-192.168.0.29) > Add
+
 
 ![add_zabbix_agent](img/add-zabbix-agent.png)
