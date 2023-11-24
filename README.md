@@ -202,4 +202,6 @@ New-NetFirewallRule -DisplayName 'Zabbix agent_out' -Profile 'Any' -Direction Ou
 ### Latest data
 Zabbix на сервере
 ![latest_zabbix_agent3](img/latest-data-AgentZabbixWin.png)
+
+### Hosts
 ![final](img/final.png)
