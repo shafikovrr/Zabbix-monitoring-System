@@ -96,3 +96,51 @@ dpkg-reconfigure locales
 4. Приложите в файл README.md текст использованных команд в GitHub
 
 ## Решение 2
+
+Установите Zabbix Agent на 2 вирт.машины.
+Установка на виртуальную машину с zabbix-server:
+
+* установка Zabbix агента
+```
+apt install zabbix-agent
+```
+* рестарт Zabbix агента и настройка автозапуска при старте системы
+```
+systemctl restart zabbix-agent
+systemctl enable zabbix-agent
+```
+Установка на чистую виртуальную машину:
+* добавляем репозиторий
+```
+sudo su
+apt update
+wget https://repo.zabbix.com/zabbix/6.0/debian/pool/main/z/zabbix-release/zabbix-release_6.0-5+debian12_all.deb
+dpkg -i zabbix-release_6.0-5+debian12_all.deb
+apt update
+```
+* установка Zabbix агента
+```
+apt install zabbix-agent
+```
+* рестарт Zabbix агента и настройка автозапуска при старте системы
+```
+systemctl restart zabbix-agent
+systemctl enable zabbix-agent
+```
+
+Добавление доверенного сервера zabbix-server на виртуальную машину с zabbix агентом
+```
+nano /etc/zabbix/zabbix_agentd.conf
+Server=127.0.0.1 заменить на Server=192.168.0.103
+systemctl restart zabbix-agent
+systemctl status zabbix-agent
+```
+или
+```
+sed -i 's/Server=127.0.0.1/Server=192.168.0.103/g' /etc/zabbix/zabbix_agentd.conf
+systemctl restart zabbix-agent
+systemctl status zabbix-agent
+```
+Добавление Zabbix Agentов в раздел "Configuration > Hosts" на Zabbix Server.
+
+![add_zabbix_agent](img/add-zabbix-agent.png)
