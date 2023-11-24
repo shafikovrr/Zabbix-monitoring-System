@@ -157,3 +157,33 @@ Zabbix на сервере
 
 Zabbix на ВМ
 ![add_zabbix_agent2](img/latest-data-AgentZabbix.png)
+
+---
+
+## Задание 3 со звёздочкой*
+
+Установите Zabbix Agent на Windows (компьютер) и подключите его к серверу Zabbix.
+
+### Требования к результаты
+Приложите в файл README.md скриншот раздела Latest Data, где видно свободное место на диске C:
+
+## Решение 3
+
+Загрузка агента на windows 11 (Windows-Any-amd64-6.0 LTS-No encryption-msi)
+```
+https://cdn.zabbix.com/zabbix/binaries/stable/6.0/6.0.23/zabbix_agent-6.0.23-windows-amd64.zip
+```
+Извлекаем файлы из архива в папку С:\agent-zabbix
+Правка файла С:\agent-zabbix\conf\zabbix_agentd.conf >> Server=192.168.0.103
+
+Установка агента
+```
+C:\agent-zabbix\bin\zabbix_agentd.exe –-config  C:\agent-zabbix\conf\zabbix_agentd.conf -–install
+```
+
+Запуск агента
+```
+C:\agent-zabbix\bin\zabbix_agentd.exe --start
+```
+
+![za-install-win](img/za-install-win.png)
