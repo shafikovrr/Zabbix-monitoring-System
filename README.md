@@ -109,7 +109,7 @@ apt install zabbix-agent
 systemctl restart zabbix-agent
 systemctl enable zabbix-agent
 ```
-Установка на чистую виртуальную машину:
+### Установка на чистую виртуальную машину:
 * добавляем репозиторий
 ```
 sudo su
@@ -142,7 +142,18 @@ systemctl restart zabbix-agent
 systemctl status zabbix-agent
 ```
 Добавление Zabbix Agentов в раздел "Configuration > Hosts" на Zabbix Server.
+Configuration > Hosts > Create host > (Host name-AgentOnZSrv); (Templates-Linux by Zabbix agent); (Groups-Linux servers); (Interfaces-192.168.0.29) > Add
 Configuration > Hosts > Create host > (Host name-AgentZabbix); (Templates-Linux by Zabbix agent); (Groups-Linux servers); (Interfaces-192.168.0.29) > Add
 
+Zabbix на сервере
+![add_zabbix_agent1](img/add-zabbix-agent-zsrv.png)
 
-![add_zabbix_agent](img/add-zabbix-agent.png)
+Zabbix на ВМ
+![add_zabbix_agent2](img/add-zabbix-agent-vm.png)
+
+### Latest data
+Zabbix на сервере
+![latest_zabbix_agent1](img/latest-data-AgentOnZSrv.png)
+
+Zabbix на ВМ
+![add_zabbix_agent2](img/latest-data-AgentZabbix.png)
