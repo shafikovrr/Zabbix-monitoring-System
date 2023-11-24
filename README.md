@@ -187,3 +187,18 @@ C:\agent-zabbix\bin\zabbix_agentd.exe --start
 ```
 
 ![za-install-win](img/za-install-win.png)
+
+Настройка файрвола на Windows (PowerShell - с правами администратора)
+
+```
+New-NetFirewallRule -DisplayName 'Zabbix agent_inb' -Profile 'Any' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 10050
+New-NetFirewallRule -DisplayName 'Zabbix agent_out' -Profile 'Any' -Direction Outbound -Action Allow -Protocol TCP -LocalPort 10050
+
+```
+Добавляем хост на Zabix сервере
+
+![add-zabbix_agent-win](img/add-zabbix-agent-win.png)
+
+### Latest data
+Zabbix на сервере
+![latest_zabbix_agent3](img/latest-data-AgentZabbixWin.png)
